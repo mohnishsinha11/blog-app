@@ -18,11 +18,8 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepo userRepo;
 
+    @Autowired
     ModelMapper modelMapper;
-
-    public UserServiceImpl() {
-        modelMapper = new ModelMapper();
-    }
 
     @Override
     public UserDto createUser(UserDto userDto) {
@@ -36,7 +33,7 @@ public class UserServiceImpl implements UserService {
         User user = userRepo.findById(userId).orElseThrow(()-> new ResourceNotFoundException("User", " id ", userId));
 
         user.setName(userDto.getName());
-        user.setUsername(userDto.getUsername());
+        user.setEmail(userDto.getEmail());
         user.setPassword(userDto.getPassword());
         user.setAbout(userDto.getAbout());
 
