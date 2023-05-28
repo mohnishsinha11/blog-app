@@ -12,6 +12,7 @@ import javax.validation.constraints.NotEmpty;
 @Setter
 @NoArgsConstructor
 public class PostDto {
+    private Integer postId;
     @NotEmpty
     private String title;
     private String content;
